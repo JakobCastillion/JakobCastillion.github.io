@@ -1,9 +1,12 @@
 body {
   margin: 0px;
+
 }
 
 canvas {
-  background-color: lightblue;
+  background-image: url("images/background.png"); 
+  background-repeat: no-repeat;
+  background-size: 100%;
   margin: 20px;
 }
 
