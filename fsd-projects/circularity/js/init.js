@@ -21,16 +21,16 @@ var init = function (window) {
         
         // TODO 1 : Declare and initialize our variables
         var circle;
-        var circles = [];
+        var circles = [];// array for the ammount of circles drawn
         
 
 
         // TODO 2 : Create a function that draws a circle 
         function drawCircle(){
-            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2);
-            physikz.addRandomVelocity(circle, canvas, 5, 5);
-            view.addChild(circle);
-            circles.push(circle);
+            circle = draw.randomCircleInArea(canvas, true, true, "#999", 2); // draws random circles in different areas
+            physikz.addRandomVelocity(circle, canvas, 5, 5); // adds a random direction and velocity
+            view.addChild(circle); 
+            circles.push(circle); // adds new circles to the array
         }
 
 
@@ -40,7 +40,7 @@ var init = function (window) {
         // TODO 7 : Use a loop to create multiple circles
         for (var i = 0; i < 500; i++){
             drawCircle()
-        }
+        } // draws circles 500 times, or however many the number that i has to be less than
 
 
 
@@ -60,8 +60,8 @@ var init = function (window) {
 
             // TODO 8 / TODO 9 : Iterate over the array
            for (i=0; i<circles.length; i++){
-            physikz.updatePosition(circles[i]);
-            game.checkCirclePosition(circles[i]);
+            physikz.updatePosition(circles[i]); // pushes the circles in random directions
+            game.checkCirclePosition(circles[i]); // checks the positon of each circle so we know where they are
            }
 
         };
@@ -74,18 +74,18 @@ var init = function (window) {
         game.checkCirclePosition = function(circle) {
 
             // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-            if ( circle.x > canvas.width ) {
+            if ( circle.x > canvas.width ) { // 
                 circle.x = 0;
             }
             
             // TODO 6 : YOUR CODE STARTS HERE //////////////////////
-            if (circle.y > canvas.height){
+            if (circle.y > canvas.height){  // if the circles goes past the bottom, place it on the top
             circle.y = 0
             }
-            if (circle.y < 0){
+            if (circle.y < 0){  // if the circles goes past the top, place it on the bottom
             circle.y = canvas.height
             }
-            if ( circle.x < 0) {
+            if ( circle.x < 0) {  // if the circles goes past the left, place it on the right
                 circle.x = canvas.width;
             }
 
