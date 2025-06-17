@@ -15,9 +15,11 @@ var makeLevelData = function (window) {
         number: 1,
         speed: -3,
         gameItems: [
-          { type: "sawblade", x: 400, y: groundY },
-          { type: "sawblade", x: 600, y: groundY },
-          { type: "sawblade", x: 900, y: groundY },
+          { type: "sawblade", x: 700, y: groundY, speedX: -12 },
+          { type: "sawblade", x: 1300, y: groundY, speedX: -3 },
+          { type: "sawblade", x: 1900, y: groundY, speedX: -3 },
+          { type: "marker", x: 2100, y: groundY-60},
+
         ],
       },
       {
@@ -25,9 +27,13 @@ var makeLevelData = function (window) {
         number: 2,
         speed: -3,
         gameItems: [
-          { type: "sawblade", x: 400, y: groundY },
-          { type: "sawblade", x: 600, y: groundY },
-          { type: "sawblade", x: 900, y: groundY },
+          { type: "sawblade", x: 700, y: groundY, speedX: -3 },
+          { type: "sawblade", x: 1000, y: groundY, speedX: -3 },
+          { type: "sawblade", x: 1300, y: groundY, speedX: -3 },
+          { type: "sawblade", x: 1600, y: groundY, speedX: -15 },
+          { type: "sawblade", x: 1900, y: groundY, speedX: -3 },
+          { type: "reward", x: 800, y: groundY - 60},
+
         ],
       },
     ];
