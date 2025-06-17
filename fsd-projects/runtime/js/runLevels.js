@@ -14,7 +14,7 @@ var runLevels = function (window) {
     var levelData = window.opspark.levelData;
 
     // set this to true or false depending on if you want to see hitzones
-    game.setDebugMode(true);
+    game.setDebugMode(false);
 
     // TODOs 5 through 11 go here
     // BEGIN EDITING YOUR CODE HERE
@@ -25,27 +25,29 @@ var runLevels = function (window) {
     sawBladeHitZone.x = x;
     sawBladeHitZone.y = y; 
     sawBladeHitZone.rotationalVelocity = 30;
+    sawBladeHitZone.velocityX = speedX;
     game.addGameItem(sawBladeHitZone);
     var obstacleImage = draw.bitmap("img/sawblade.png");
     sawBladeHitZone.addChild(obstacleImage);
-    obstacleImage.velocityX = speedX;
+   
     obstacleImage.x=-25
     obstacleImage.y=-25
     
   }
 
-    function createEnemy(x,y) {
+    function createEnemy(x,y, speedX) {
     var enemy = game.createGameItem("enemy", 25);
-    var redSquare = draw.rect(50, 50, "red");
+    var redSquare = draw.bitmap("img/enemy.png");
     redSquare.x = -25;
     redSquare.y = -25;
+    redSquare.scaleX = 0.5;
+    redSquare.scaleY = 0.5
     enemy.addChild(redSquare);
     enemy.x = x;
     enemy.y = y
     game.addGameItem(enemy);
     
-    enemy.velocityX = -2;
-    enemy.rotationalVelocity = 1;
+    enemy.velocityX = speedX;
     enemy.onPlayerCollision = function () {
     game.changeIntegrity(-100)
     }
@@ -58,9 +60,11 @@ var runLevels = function (window) {
 
     function createReward(x,y) {
     var reward = game.createGameItem("reward", 25);
-    var blueSquare = draw.rect(50, 50, "blue");
+    var blueSquare = draw.bitmap("img/medickit.png")
     blueSquare.x = -25;
     blueSquare.y = -25;
+    blueSquare.scaleX = 0.2;
+    blueSquare.scaleY = 0.2
     reward.addChild(blueSquare);
     reward.x = x;
     reward.y = y
@@ -79,9 +83,12 @@ var runLevels = function (window) {
 
     function createMarker(x,y){
       var marker = game.createGameItem("marker", 25);
-      var greenSquare = draw.rect(50, 50, "green");
+      var greenSquare = draw.bitmap("img/flag.png")
+
       greenSquare.x = -25;
       greenSquare.y = -25;
+      greenSquare.scaleX = 0.3
+      greenSquare.scaleY = 0.3
       marker.addChild(greenSquare);
       marker.x = x;
       marker.y = y
@@ -111,7 +118,7 @@ var runLevels = function (window) {
         }else if(element.type === "reward"){
           createReward(element.x, element.y)
         }else if(element.type === "enemy"){
-          createEnemy(element.x, element.y)
+          createEnemy(element.x, element.y, element.speedX)
         }
       }
 
