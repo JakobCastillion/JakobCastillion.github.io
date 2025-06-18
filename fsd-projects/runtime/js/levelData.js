@@ -148,7 +148,7 @@ var makeLevelData = function (window) {
         ],
       },
                   {
-        name: "Doom, Destroyer of Planets",
+        name: "RoB0b, Destroyer of Planets",
         number: 9,
         speed: -3,
         gameItems: [
@@ -159,7 +159,7 @@ var makeLevelData = function (window) {
           { type: "sawblade", x: 5100, y: groundY-20, speedX: -30 },
           { type: "sawblade", x: 4950, y: groundY-20, speedX: -30 },
           { type: "sawblade", x: 4850, y: groundY-20, speedX: -30 },
-        ],
+        ], // unkillable boss is a distraction from the sawblade barrage
       },
 
     ];

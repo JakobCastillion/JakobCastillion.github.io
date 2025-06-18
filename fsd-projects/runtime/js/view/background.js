@@ -31,7 +31,8 @@ var background = function (window) {
         // TODO (several):
         var tree;
         var buildings = [];
-      
+        var car;
+        var treev2;
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
         function render() {
@@ -68,12 +69,29 @@ var background = function (window) {
 }
             
             // TODO 3: Part 1 - Add a tree
+            car = draw.bitmap("img/lacar.png");
+            car.x = 100;
+            car.y = groundY-70;
+            car.scaleX = 0.3
+            car.scaleY = 0.3
+            background.addChild(car);
+
             tree = draw.bitmap("img/buildingsee.png");
             tree.x = 100;
             tree.y = groundY-240;
             tree.scaleX = 0.5
             tree.scaleY = 0.5
             background.addChild(tree);
+
+            treev2 = draw.bitmap("img/buildingsee.png");
+            treev2.x = 1100;
+            treev2.y = groundY-240;
+            treev2.scaleX = 0.5
+            treev2.scaleY = 0.5
+            background.addChild(treev2);
+
+
+
             
         } // end of render function - DO NOT DELETE
         
@@ -87,10 +105,20 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 3: Part 2 - Move the tree!
+            treev2.x = treev2.x - 1;
+
+            if (treev2.x < -200) {
+             treev2.x = canvasWidth;
+}
             tree.x = tree.x - 1;
 
             if (tree.x < -200) {
              tree.x = canvasWidth;
+}
+            car.x = car.x - 4;
+
+            if (car.x < -200) {
+             car.x = canvasWidth;
 }
             
             // TODO 4: Part 2 - Parallax
